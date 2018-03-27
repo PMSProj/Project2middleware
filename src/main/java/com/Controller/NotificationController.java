@@ -49,7 +49,7 @@ public class NotificationController {
 
 	@RequestMapping(value="/updatenotification/{id}",method=RequestMethod.PUT)
 	public ResponseEntity<?> updateNotification(@PathVariable int id,HttpSession session){
-		Session email=(Session) session.getAttribute("loginId");
+		String email=(String) session.getAttribute("loginId");
 		if(email==null){
 			ErrorClazz error=new ErrorClazz(5,"Unauthorized access...");
 			return new ResponseEntity<ErrorClazz>(error,HttpStatus.UNAUTHORIZED);
