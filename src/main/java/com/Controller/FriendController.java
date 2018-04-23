@@ -62,7 +62,7 @@ public class FriendController {
 		return new ResponseEntity<List<Friend>>(pendingRequests,HttpStatus.OK);
 	}
 	@RequestMapping(value ="/acceptrequest", method = RequestMethod.PUT)
-	public ResponseEntity<?>acceptRequest(@RequestBody Friend request,HttpSession session){
+	public ResponseEntity<?> acceptRequest(@RequestBody Friend request,HttpSession session){
 		String email=(String) session.getAttribute("loginId");
 		if(email==null){
 			ErrorClazz error = new ErrorClazz(5, "Unauthorized access..");
